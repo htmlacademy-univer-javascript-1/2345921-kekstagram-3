@@ -10,8 +10,16 @@ function getRandomArbitrary(min, max) {
 
 function maxLength(str, maxL){
   if (str.length <= maxL){
-    console.log(str.length);
     return true;
   }
   return false;
 }
+
+let one = 5;
+let two = 10;
+getRandomArbitrary(one, two);
+
+let answ = 'actually';
+let mL = 10;
+maxLength(answ, mL);
+
