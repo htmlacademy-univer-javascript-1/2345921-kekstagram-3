@@ -1,25 +1,50 @@
-//Функция, возвращающая случайное целое число из переданного диапазона включительно.
-// Источник https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random#получение_случайного_целого_числа_в_заданном_интервале
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
-}
+const PHOTO_COUNT = 25;
+const DESCRIPTION = [
+  'это я отдыхаю',
+  'с подружками',
+  'я люблю поесть',
+  'Если смогу, я сделаю это. Конец истории.',
+  'Любите меня, от этого я буду сиять еще ярче!',
+  'Если у вас есть глаза, взгляните на меня сейчас!',
+  'Всегда помните: вы живете только один раз',
+  'Я просто прямой потомок грандиозности.'
+];
 
+//функция из 4.14
+const getRandomPositiveInteger = (a, b) => {
+  const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
+  const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
+  const result = Math.random() * (upper - lower + 1) + lower;
+
+  return Math.floor(result);
+};
 
 //Функция для проверки максимальной длины строки. Будет использоваться для проверки длины
 //введённого комментария, но должна быть универсальна. Пример использования функции:
+const isStrLengthCorrect = (curLength, maxValue) => curLength.length <= maxValue;
+isStrLengthCorrect('LOLOLO', 10);
 
-function maxLength(str, maxL){
-  if (str.length <= maxL){
-    return true;
+
+const createPhoto = (i) =>{
+  const photo = {
+    id: i,
+    url: `photos/${i}.jpg`,
+    description: DESCRIPTION[getRandomPositiveInteger(0, DESCRIPTION.length - 1)],
+    likes: getRandomPositiveInteger(15, 200),
+    comments: getRandomPositiveInteger(0, 200)
+  };
+  return photo;
+};
+
+const generatePhotos = () => {
+  const photos = [];
+  for (let i = 1; i <= PHOTO_COUNT; i++){
+    photos.push(createPhoto(i, `Photo №${i}`));
   }
-  return false;
-}
+  return photos;
+};
 
-let one = 5;
-let two = 10;
-getRandomArbitrary(one, two);
-
-let answ = 'actually';
-let mL = 10;
-maxLength(answ, mL);
+const similarPhsotos = generatePhotos();
+//eslint-disable-next-line
+console.log(similarPhsotos[6]);
 
