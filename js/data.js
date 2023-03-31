@@ -1,6 +1,6 @@
 import { getRandomPositiveInteger } from './util.js';
 
-const PHOTO_COUNT = 25;
+//const PHOTO_COUNT = 25;
 const DESCRIPTION = [
   'это я отдыхаю',
   'с подружками',
@@ -23,9 +23,9 @@ const createPhoto = (i) =>{
   return photo;
 };
 
-const generatePhotos = () => {
+const generatePhotos = (n) => {
   const photos = [];
-  for (let i = 1; i <= PHOTO_COUNT; i++){
+  for (let i = 1; i <= n; i++){
     photos.push(createPhoto(i, `Photo №${i}`));
   }
   return photos;
