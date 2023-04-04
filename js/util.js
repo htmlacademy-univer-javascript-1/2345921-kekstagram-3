@@ -7,7 +7,9 @@ const getRandomPositiveInteger = (a, b) => {
   return Math.floor(result);
 };
 
-export {getRandomPositiveInteger};
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
+export {getRandomPositiveInteger, isEscapeKey};
 //Функция для проверки максимальной длины строки. Будет использоваться для проверки длины
 //введённого комментария, но должна быть универсальна. Пример использования функции:
 //const isStrLengthCorrect = (curLength, maxValue) => curLength.length <= maxValue;
