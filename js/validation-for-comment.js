@@ -1,5 +1,8 @@
+import {strLength} from './util.js';
+import {sendData} from './api.js';
+
 const form = document.querySelector('.img-upload__form');
-const comment = form.querySelector('.text__description');
+const comment = (element) => !strLength(element, 19) && strLength(element, 140);
 const pristine = new Pristine(form, {
   classTo: 'img-upload__text',
   successClass: 'img-upload__text--valid',
@@ -9,18 +12,11 @@ const pristine = new Pristine(form, {
   errorTextClass: 'form__error'
 });
 
+pristine.addValidator(document.querySelector('.text__description'), comment, 'Длина комментария от 20 до 140 символов!');
+
 form.addEventListener('submit', (evt) => {
-  if (!pristine.validate()) {
-    evt.preventDefault();
+  evt.preventDefault();
+  if (pristine.validate()) {
+    sendData(evt);
   }
 });
-
-comment.addEventListener('change', (evt) => {
-  if (!pristine.validate()) {
-    evt.preventDefault();
-  }
-});
-
-//комментарий обязателен;
-//длина комментария не может быть меньше 20 символов;
-//длина комментария не может составлять больше 140 символов.

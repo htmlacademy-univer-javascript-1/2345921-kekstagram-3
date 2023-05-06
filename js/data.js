@@ -1,6 +1,5 @@
-import { getRandomPositiveInteger } from './util.js';
+import {getRandomPositiveInteger} from './util.js';
 
-//const PHOTO_COUNT = 25;
 const DESCRIPTION = [
   'это я отдыхаю',
   'с подружками',
@@ -31,5 +30,4 @@ const generatePhotos = (n) => {
   return photos;
 };
 
-//const similarPhsotos = generatePhotos();
 export {generatePhotos};
