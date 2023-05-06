@@ -26,13 +26,14 @@ function openWindow() {
   document.addEventListener('keydown', closeOnButton);
 
 }
-function cleanForm() {
+
+const cleanForm = () => {
   buttonUploadPicture.value = '';
   resetEffect();
   document.querySelector('.text__hashtags').value = '';
   document.querySelector('.text__description').value = '';
   document.querySelector('.scale__control--value').value = '100%';
-}
+};
 
 function closeWindow(clean) {
   document.querySelector('.img-upload__overlay').classList.add('hidden');
@@ -42,3 +43,4 @@ function closeWindow(clean) {
     cleanForm();
   }
 }
+export {openWindow, closeWindow};

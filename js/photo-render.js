@@ -1,6 +1,5 @@
-//отрисовка одной миниатюры;
-const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const simularPicsContainer = document.querySelector('.pictures');
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
 export const renderPhoto = (posts) => {
   const inputFragment = document.createDocumentFragment();

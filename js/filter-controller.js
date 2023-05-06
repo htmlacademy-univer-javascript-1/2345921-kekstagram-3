@@ -13,7 +13,7 @@ noUiSlider.create(sliderElementer, {
   step:0.1
 });
 
-function updateSlider(min, max, step) {
+/*function updateSlider(min, max, step) {
   sliderElementer.noUiSlider.updateOptions({
     start: [max],
     range: {
@@ -22,13 +22,24 @@ function updateSlider(min, max, step) {
     },
     step:step
   });
-}
+}*/
+
+const updateSlider = (min, max, step) => {
+  sliderElementer.noUiSlider.updateOptions({
+    start: [max],
+    range: {
+      'min': min,
+      'max': max
+    },
+    step:step
+  });
+};
 
 sliderElementer.classList.add('hidden');
 sliderBackground.classList.add('hidden');
 let filter = 'none';
 
-function addEffect(button) {
+const addEffect = (button) => {
   button.addEventListener('change', ()=> {
     imgUploadPreview.classList.remove(`effects__preview--${filter}`);
     imgUploadPreview.classList.add(`effects__preview--${button.value}`);
@@ -68,7 +79,7 @@ function addEffect(button) {
         break;
     }
   });
-}
+};
 
 for (let i = 0; i<effectButtons.length; i++) {
   addEffect(effectButtons[i]);
