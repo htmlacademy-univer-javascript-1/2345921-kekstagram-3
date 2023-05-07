@@ -6,6 +6,7 @@ import './validation-for-comment.js';
 import './scale-controller.js';
 import './filter-controller.js';
 
+
 getPicturesFromServer();
 
 // eslint-disable-next-line
