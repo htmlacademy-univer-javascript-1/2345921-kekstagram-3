@@ -1,8 +1,12 @@
-import{generatePhotos} from './data.js';
-import {renderPhoto} from './pictureDrawer.js';
+import './util.js';
+import {getPicturesFromServer} from './api.js';
+import './photo-render.js';
+import './form.js';
+import './validation-for-comment.js';
+import './scale-controller.js';
+import './filter-controller.js';
 
-const post = generatePhotos(25);
 
-renderPhoto(post);
-//eslint-disable-next-line
-//Задание 7 часть 2
+getPicturesFromServer();
+
+// eslint-disable-next-line
